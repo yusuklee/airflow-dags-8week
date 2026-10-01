@@ -75,7 +75,7 @@ with DAG(
     catchup=True,
     max_active_runs=1,
     default_args={"retries":2, "retry_delay":timedelta(minutes=1)},
-    tags={"realestate","bronze"},
+    tags=["realestate","bronze"],
 ) as dag:
     start = EmptyOperator(task_id="start")
     end=EmptyOperator(task_id="end",trigger_rule="none_failed_min_one_success")
